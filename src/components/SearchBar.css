@@ -1,40 +1,119 @@
+/* ============================
+   DASHBOARD CONTENT HEADER
+=============================== */
+.dbContentHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Title */
+.nameOfContentDisplayed h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgb(253, 253, 255);
+  margin: 0;
+}
 
 
-/* This is the searchBar section */
-.searchBar{
-    width:80%;
-    max-width: 15rem;
-    height:2.3rem;
-    background-color: rgb(211, 211, 255);
-    
-  }
-  .searchBar input{
-    width:80%;
-    height:1.5rem;
-    background-color: transparent;
-    font-size: 1rem;
-    border:none;
-    border-bottom: 1px solid rgba(211, 211, 255, 0.4);
-    color:rgb(4, 11, 29);
-    padding: 15px;
-    padding-top: 20px;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    
-  }
-  .searchBar input[type="text"]:focus{
-    border-color:rgb(4, 11, 29);
-   
-  }
-  .search-icon {
-    font-size: 20px;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .search-icon:hover {
-    color: #d13e12 
-  }
-  
+/* ============================
+   SORT BY SECTION
+=============================== */
+.sortBy {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sortBy p {
+  font-size: 0.95rem;
+  color: rgb(255, 255, 255);
+}
+
+.sortBy select {
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(152, 160, 255, 0.35);
+  background: rgba(255, 255, 255, 0.9);
+
+  color: rgb(35, 48, 95);
+  font-size: 0.9rem;
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  outline: none;
+}
+
+.sortBy select:hover {
+  border-color: rgba(103, 116, 255, 0.55);
+  box-shadow: 0 3px 10px rgba(103, 116, 255, 0.20);
+}
+
+.sortBy select:focus {
+  border-color: rgba(103, 116, 255, 0.9);
+}
+
+
+/* ============================
+   SEARCH BAR — REUSED BUT IMPROVED
+=============================== */
+.searchBar {
+  width: 100%;
+  max-width: 20rem;
+  height: 2.8rem;
+
+  background: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  padding: 0 1rem;
+  margin-left: 0;
+
+  border: 1px solid rgba(103, 116, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.searchBar:hover {
+  border-color: rgba(103, 116, 255, 0.45);
+  box-shadow: 0 4px 12px rgba(103, 116, 255, 0.25);
+}
+
+/* Search Input */
+.searchBar input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+
+  border: none;
+  outline: none;
+
+  font-size: 1rem;
+  color: rgb(4, 11, 29);
+  margin-left: 0.5rem;
+
+  transition: all 0.3s ease;
+}
+
+.searchBar input::placeholder {
+  color: rgba(4, 11, 29, 0.5);
+}
+
+/* Search Icon */
+.search-icon {
+  font-size: 1.2rem;
+  color: rgb(60, 72, 150);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.search-icon:hover {
+  color: rgb(255, 91, 50);
+  transform: scale(1.15);
+}

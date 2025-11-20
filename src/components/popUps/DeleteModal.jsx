@@ -31,7 +31,7 @@ const DeleteModal = ({ isOpen, onClose, children, onCloseConfirm , fetchData}) =
 
   return (
     <div
-      className="modal-backdrop"
+      className=""
       onClick={handleOutsideClick}
       role="dialog"
       aria-modal="true"

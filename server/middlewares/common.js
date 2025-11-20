@@ -29,7 +29,9 @@ const commonMiddleware = (app) => {
         callback(new Error("Blocked by CORS policy"), false);
       }
     },
-    credentials: true, //  This allows cookies to travel
+
+    credentials: true, // This allows cookies to travel
+>>>>>>> joe
     exposedHeaders: ["set-cookie"], //  Optional: helps browsers see cookies
   };
 
