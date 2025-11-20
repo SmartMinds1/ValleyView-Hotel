@@ -25,17 +25,17 @@ const commonMiddleware = (app) => {
       ) {
         callback(null, true);
       } else {
-        logger.warn(`❌ Blocked CORS request from origin: ${origin}`);
+        logger.warn(` Blocked CORS request from origin: ${origin}`);
         callback(new Error("Blocked by CORS policy"), false);
       }
     },
-    credentials: true, // ✅ This allows cookies to travel
-    exposedHeaders: ["set-cookie"], // ✅ Optional: helps browsers see cookies
+    credentials: true, //  This allows cookies to travel
+    exposedHeaders: ["set-cookie"], //  Optional: helps browsers see cookies
   };
 
   app.use(cors(corsOptions));
 
-  logger.info(`✅ CORS and security middlewares initialized`);
+  logger.info(` CORS and security middlewares initialized`);
 };
 
 module.exports = commonMiddleware;

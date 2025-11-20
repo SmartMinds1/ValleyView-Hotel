@@ -49,14 +49,21 @@ exports.accessTokenValidation = body("accessToken")
   .isString()
   .withMessage("Access token must be a string.");
 
-exports.phoneValidation = body("phone")
+/* exports.phoneValidation = body("phone")
   .notEmpty()
   .withMessage("Phone must not be empty")
   .isNumeric()
   .trim()
   .escape()
   .isLength({ max: 15 })
-  .withMessage("Enter a valid phone length");
+  .withMessage("Enter a valid phone length"); */
+exports.phoneValidation = body("phone")
+  .notEmpty()
+  .withMessage("Phone must not be empty")
+  .customSanitizer(value => value.replace(/\s+/g, '')) // remove all spaces
+  .matches(/^\+?254\d{9}$/)
+  .withMessage("Invalid phone number. Use format +254XXXXXXXXX");
+
 
 exports.payment_codeValidation = body("payment_code")
   .notEmpty()
