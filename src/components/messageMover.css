@@ -1,0 +1,114 @@
+/* This is the main container holding the testimonial messages */
+.MessageMover{
+width:26rem;
+height:25rem;
+
+}
+.MessageMover div{
+    border-radius: 1rem;
+    display: inline-block;
+}
+
+.testimonialHeader{
+    color:rgb(211, 211, 255);
+    font-size: 1.5rem;
+    font-weight:600;
+    letter-spacing: 0.2rem;
+    border-right: 2px solid var(--color-accent-secondary);
+    margin: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.testimonialMessage{
+    color:rgb(211, 211, 255);
+    font-size: 1rem;
+    text-align: justify;
+    margin: 2rem;
+}
+
+/* ..................The three message display divs............. */
+.movingDiv1{
+    background-color: #ff56222d;
+    height: 9rem;
+    width:10rem;
+    margin-top: 6rem;
+    filter:blur(0.3rem);
+    overflow: hidden;
+}
+
+.movingDiv2{
+    background-color: #ff56222d;
+   filter:blur(0.18rem);
+    transform: translate(-7rem, 3rem);
+    height: 14rem;
+    width:15rem;
+    overflow: hidden;
+    
+}
+
+.movingDiv3{
+    background-image:linear-gradient( to right, #ff56222d, rgb(4, 11, 29) );
+    transform: translate(2.5rem,-14rem);
+    height: 20rem;
+    width:18rem;
+    overflow: hidden;  
+}
+
+.arrowHeadsContainer{
+    width:70%;
+    height:3rem;
+    padding:0.5rem;
+    background-color: transparent;
+    transform: translate(2.5rem,-14rem);
+}
+.arrowBtn{
+    font-size: 1.5rem;
+    color:var(--color-accent-secondary);
+    background-color: transparent;
+    border:none;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+}
+.backBtn{
+    float:right;
+    margin-right: 20%;
+}
+
+.forwadBtn{
+    float:left;
+    margin-left: 20%;
+
+}
+.backBtn:hover ,.forwadBtn:hover{
+    filter: brightness(0.7);
+}
+
+/* Now making my website more responsive */
+/*Mobiles and Tablets*/ 
+@media (max-width: 767px){
+    .MessageMover{
+        width:95%;
+        margin-top: 5rem;
+        padding-top: 2rem;
+        }
+        /* ..................The three message display divs............. */
+        .movingDiv1{
+            height: 0;
+            width:0; 
+        }
+        
+        .movingDiv2{
+            height:0;
+            width:0;   
+        }
+        .movingDiv3{
+            transform: translate(0);
+          
+        }
+        .arrowHeadsContainer{
+            transform: translate(0);
+        }
+     
+}
+
+

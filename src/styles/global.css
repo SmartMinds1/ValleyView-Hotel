@@ -1,0 +1,33 @@
+/* src/styles/global.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+}
+
+
+/* pulse animation */
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(3);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  

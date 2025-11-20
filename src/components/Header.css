@@ -1,0 +1,318 @@
+/* Make the header fixed at the top */
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height:3rem;
+  background-color: rgb(4, 11, 29, 0.5);
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  z-index: 100;
+
+}
+
+/* When the header is hidden (moving up out of view) */
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+/* When the header is visible */
+.header.visible {
+  transform: translateY(0);
+}
+
+.headerTitle{
+width:10rem;
+padding-top: 0.8rem;
+height: 100%;
+font-size: 1.5rem;
+}
+.headerTitle span{
+  color: var(--color-accent-secondary);
+  font-weight: 300;
+  
+}
+.navBar{
+height: 4rem;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-evenly;
+flex-wrap: wrap;
+
+}
+
+.navListDesign{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-evenly;
+height: 2.9rem;
+width: 70%;
+}
+.navListDesign li{
+color:var(--color-text);
+list-style-type: none;
+font-size: 0.9rem;
+cursor: pointer;
+}
+.navListDesign li:nth-child(2) span{
+  font-size: 1.5rem;
+  color:var(--color-accent-primary);
+}
+
+.linkStyle{
+  text-decoration: none;
+  color:var(--color-text);
+  transition: all 200ms ease-in-out;
+}
+.linkStyle:hover, .linkStyle:focus{
+color: var(--color-faded-accent-primary);
+
+}
+.navPages{
+width:50%;
+height:100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+
+}
+
+
+/*------------This is the auth section---------------*/
+.authSection{
+  width: 8rem;
+  text-align: center;
+  height:2rem;
+  transform: translateX(3rem);
+  display: block;
+
+}
+.authIcons{
+  width: 4rem;
+  height: 100%;
+  padding-top: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: var(--icon);
+  transition: all 300ms;
+  cursor: pointer;
+
+}
+.authIcons:hover{
+  filter: brightness(0.8);
+}
+.authIcon{
+  font-size: 1.3rem;
+  color:grey;
+
+}
+.authDropIcon{
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Auth links */
+.auth-links {
+  color: aliceblue;
+  font-size: 1rem;
+  list-style-type: none;
+  text-align: left;
+  line-height: 1.8rem;
+  width: 140px;
+  position: absolute;
+  height: 0;
+  overflow-y: hidden;
+  z-index: 2000;
+  background-color: #c42e003b;
+}
+
+/* Hover triggers animation */
+.authSection:hover .auth-links {
+  animation: bounceOpen 1s forwards;
+}
+
+/* Bounce keyframes */
+@keyframes bounceOpen {
+  0% {
+    height: 0;
+  }
+  60% {
+    height: 12rem;
+  }
+  100% {
+    height: 10rem;
+  }
+}
+
+.auth-links li{
+  width: 95%;
+  margin: auto;
+  margin-top: 0.3rem;
+  padding-left: 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: all 0.5s;
+}
+
+.auth-links li:hover{
+  background-color: #c42e0071;
+}
+
+
+
+h1{
+  color:var(--color-text);
+  font-size: 1.2rem;
+
+}
+
+
+
+
+/* Setting uP NAVBAR FOR MOBILE */
+.dashboard-icon{
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.3rem;
+  margin-right: 4%;
+  border-radius: 0.3rem;
+  border: none;
+  background-color: var(--color-faded-background);
+  color:aliceblue;
+  border:1px solid rgba(240, 248, 255, 0.2);
+  display: none;
+}
+.mobileNavBar{
+  width: 100%;
+  height: 100vh;
+  background-color:var(--color-background);
+  position: fixed;
+  top:3rem;
+  left: 0;
+  display: none;
+  animation: mobileSlide 0.8s ease-in-out 0s forwards;
+
+  }
+  @keyframes mobileSlide {
+    from{
+      transform: scaleX(0)
+    }
+    to{
+      transform: scaleX(1);
+    }
+    
+  }
+
+  .mobileAuthNav{
+    width:85%;
+    height: 26vh;
+    margin: auto;
+    margin-bottom: 1.1rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: space-evenly;
+
+  }
+  .mobileAuthNav li{
+      list-style-type: none;
+      font-weight: bold;
+      width: 100%;
+      height: 3rem;
+      font-size: 1rem;
+      font-weight: bold;
+      padding-top: 0.7rem;
+      border-radius: 5px;
+  }
+  .mobileAuthNav li:nth-child(1){
+      background-color: var(--color-faded-background);
+      border: 1px solid rgba(240, 248, 255, 0.2);
+  }
+  .mobileAuthNav li:nth-child(2){
+    background-color: var(--color-text);
+    color: black;
+  }
+
+  .mobileNavList{
+    width:85%;
+    height: 62vh;
+    margin: auto;
+
+  }
+  .mobileNavList li{
+    width: 100%;
+    height: 3.5rem;
+    text-align: left;
+    padding-top: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: transparent;
+    list-style-type: none;
+    border-bottom: 1px solid rgba(240, 248, 255, 0.2);
+
+
+  }
+  .mobileNavList li:nth-child(6){
+    border-bottom: none;
+  }
+
+/* Now making my website more responsive */
+/*Mobiles*/ 
+@media (max-width: 767px){
+  .navBar{
+    height: 3rem;
+    justify-content: flex-end;
+
+    }
+    .navBar h1{
+      margin-right: 30%;
+      position: fixed;
+      top:0;
+      left:0;
+    }
+    .mobileNavBar{
+      display: block;
+    }
+    .dashboard-icon{
+      display: block;
+    }
+
+    .navListDesign{
+    display: none;
+    }
+
+    .navPages{
+    display: none;
+    
+    }
+    .authSection{
+      display: none;
+    }
+
+}
+
+/* laptops and small screens*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .navListDesign{
+    gap: 10PX;
+    width: 100%;
+    }
+    .navAcc{
+    width:11rem;
+    margin-left: 3rem;
+    height:fit-content;
+    
+    }
+    .navAcc ul{
+      width: 70%;
+    }
+    
+}
+
+

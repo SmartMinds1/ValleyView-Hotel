@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+
+.btn{
+  background-color:  #c42e00;
+  color: aliceblue;
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 0;
+  transition: all 200ms ease-in-out;
+  margin-top: 1rem;
+  width: 7rem;
+  height: 2.5rem;
+  border:none;
+  font-size: 1rem;
+  cursor:pointer;
+
+  }
+
+  .btn:hover {
+    filter: brightness(0.85);
+  }
+
+  .btn:active {
+    filter: brightness(1);
+  }

@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  .Layout{
+    text-align: center;
+    background-color:#040b1d;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+  }
+
+  .formalDate{
+    font-size: 0.9rem;
+    float:left;
+    color:aliceblue;
+    margin-left: 1rem;
+    filter:brightness(0.75)
+}
+
+
+  
+  
+  
+  
+  

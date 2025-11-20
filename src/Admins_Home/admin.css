@@ -1,0 +1,449 @@
+
+.mainBoard{
+    background-color: var(--color-background);
+    width: 100%;
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerDiv{
+    background-color: var(--color-faded-background);
+    height: 8vh;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 1%;
+}
+
+/* styling headers */
+.headerDiv h1{
+    font-size: 1.7rem;
+}
+.headerDiv h1 span{
+    color: var(--color-accent-secondary);
+    font-weight: 300;
+}
+.headerDiv h2{
+    font-size: 1.5rem;
+}
+.headerDiv h2 span{
+    color:var(--color-accent-secondary);
+}
+
+/* adminProfile */
+.adminDiv{
+    height:3rem;
+    width:15%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.adminProfile{
+    width:3rem;
+    height:3rem;
+    border-radius: 50%;
+    background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
+    background-size: contain;
+  
+}
+.adminDiv p{
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+
+
+/*------------- NOW MOVING TO THE MAIN DIV --------------*/
+.mainDiv{
+    background-color: var(--color-text);
+    width:100%;
+    height: 86vh;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #7082a848;
+}
+/* Wrapper div for the entire navigation div menu
+  when hoverd, it opens to show the hidden nav links
+*/
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width:2.5rem;
+    height: 92vh;
+    transition:  width 1s ease-in-out; 
+    background-color:var(--color-background);
+    padding:0.1%;
+    gap: 1%;
+}
+.wrapper:hover {
+    width: 15.5rem; /* Expand the wrapper smoothly */
+}
+
+/*----The div holding the nav icons on the left side------- */
+.iconsDiv{
+    background-color: var(--color-faded-background);
+    width:2.5rem;
+    height: 100%;
+    cursor:pointer;
+
+}
+/* nav links div */
+.navDiv{
+    background-color:var(--color-faded-background);
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    transition:  width 1s ease-in-out;
+    cursor:pointer;  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .hello{
+        background-color:var(--color-background);
+        width: 100%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        
+       p{
+        font-weight: bold;
+        margin-bottom: 5%;
+        font-size: 1.5rem;
+       }
+
+       p span{
+        font-weight: 300;
+        color:var(--color-accent-primary);
+        
+       }
+        .profile{
+            background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
+            background-size: cover;
+        
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            
+        }
+    }
+
+}
+
+
+.wrapper:hover  .navDiv{
+    width: 12.6rem; 
+ }
+.navDiv ul{
+    width:100%;
+    height: fit-content;
+    margin:auto;
+    line-height: 3rem;
+    padding:0.5rem;
+
+}
+.navDiv ul li{
+    background-color: var(--color-background);
+    list-style-type: none;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    text-align: center;
+
+
+}
+.navDiv ul li:hover, .navDiv ul li:focus{
+    filter:brightness(0.8);
+    background-color: var(--color-accent-primary);
+}
+
+
+/* -----------This is the content div with the data retrieved from the database ----------------*/
+.contentDiv{
+ background-color: var(--color-background);
+ height: 92vh;
+ display:flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: flex-start;
+ gap: 1%;
+ flex-grow: 2;
+ margin-left: 0.1%;
+ padding:1%;
+
+}
+.contentHeader{
+    width: 100%;
+    height: 25vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1%;
+    padding:1%;
+}
+.box{
+    width:20%;
+    height:8rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-faded-background);
+    color:var(--color-text);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transform: none;
+    transition: all 0.5s;
+}
+.box i{
+    font-size: 1.5rem;
+    margin-top: 5%;
+}
+.box:hover{
+height:10rem ;
+background-color: #0c1731;
+/* background-color: var(--color-accent-primary); */
+}
+.box:hover p span{
+    color:var(--color-accent-secondary);
+    
+}
+.box p{
+    font-size: 1rem;
+    margin-top: 20%;
+}
+.box p span{
+    transition: all 0.5s;
+    font-size: 2rem;
+    color: var(--color-accent-primary);
+}
+.dbContentHeader{
+    width:60%;
+    height:7vh;
+    background-color: var(--color-background);
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: absolute;
+  
+}
+.dbContentHeader p{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.nameOfContentDisplayed{
+    width:20%;
+    height: 2rem;
+    background-color: var(--color-faded-background);
+}
+
+
+/* This is the searchBar section */
+.searchBar{
+    width:40%;
+    height: 1.8rem;
+    background-color: var(--color-text);
+    padding-left: 1rem;
+    border-radius: 1rem;
+   
+ 
+    
+  }
+  .searchBar input{
+    width:80%;
+    height:1.5rem;
+    background-color: transparent;
+    font-size: 1rem;
+    border:none;
+    /* border-bottom: 1px solid rgba(211, 211, 255, 0.4); */
+    color:black;
+    padding: 15px;
+    padding-bottom: 0.3rem;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    
+  }
+  .searchBar input[type="text"]:focus{
+    border-color:rgb(4, 11, 29);
+   
+  }
+  .search-icon {
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .search-icon:hover {
+    color: #d13e12 
+  }
+  
+
+
+
+
+.searchBox input{
+    border:none;
+    outline: none;
+    width:70%;
+    float:right;
+    height: 100%;
+    padding-left: 2rem;
+    font-size: 1.1rem;
+}
+.sortBy{
+    width:11rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: var(--color-faded-background);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.sortBy select{
+  background-color: var(--color-text);
+  height: 80%;
+  border:none;
+  font-size: 0.9rem;
+  margin-right: 10%;
+  outline:none;
+}
+/* .sortBy select option{
+   
+  
+} */
+.dbContent{
+    width:100%;
+    height:65vh;
+    background-color: var(--color-faded-background);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border:1px solid #7082a848;  
+}
+
+
+/* MY COLORS */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+  
+  .button-primary {
+    background-color: var(--color-accent-primary);
+    color: var(--color-text);
+  }
+  
+  .button-secondary {
+    background-color: var(--color-accent-secondary);
+    color: var(--color-background);
+  }
+  
+
+
+
+/* ..............................The display output setUp..................................... */
+.admin-section {
+    padding: 20px;
+    border:none;
+    
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #293638;
+  /*   display: none; */
+  }
+  
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 4%;
+
+  }
+  .admin-table td {
+    font-size: 1rem;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    border-bottom: 1rem solid var(--color-faded-background);
+    padding: 8px;
+    background-color: var(--color-background);
+
+  }
+  
+  .admin-table th {
+    text-align: left;
+    color:var(--color-accent-secondary);
+    border-bottom:1px solid #7082a848;
+ 
+  }
+
+
+  
+/* Below are the setUPs for the action button at the end of each list */
+.actionBtn{
+width: 4rem;
+height: fit-content;
+
+}
+.actionBtn p{
+font-size: 1rem;
+font-weight: bold;
+width: 3rem;
+text-align: center;
+cursor: pointer;
+
+}
+
+.actionList{
+    list-style-type: none;
+    height:0;
+    transition:  height 0.5s ease-in-out; 
+    overflow-y: hidden;
+}
+.actionList li{
+    margin-bottom: 0.3rem;
+    cursor: pointer; 
+    padding: 0.2rem;
+    transition: all 300MS;
+}
+.actionList li:hover{
+    filter: brightness(0.8);
+    color: var(--color-accent-primary);
+}
+.actionBtn:hover .actionList{
+    height: 5rem;
+}
+.emptyTable{
+    margin-top: 10%;
+    text-align: center;
+    font-size: 1rem;
+
+}
+
+.responseMessage{
+    text-align: center;
+    margin: auto;
+}

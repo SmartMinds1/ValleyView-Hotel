@@ -1,0 +1,44 @@
+
+/* textbox widh to be defined where its rendered */
+.stylishTextBox{
+    background-image: linear-gradient(to top, var(---color-faded-background) , transparent);
+    padding:1rem;
+    width: 80%;
+    height:12rem;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.TextDesign p{
+    font-size: 1rem;
+    color:#f0f8ff;
+    filter:brightness(0.85);
+    text-align: left;
+    line-height: 1.8rem;
+
+   
+   
+}
+.lightDesign{
+    width:2rem;
+    height:2rem;
+    border-top-right-radius:6rem ;
+    border-top-left-radius:6rem ;
+    border-bottom-left-radius:6rem ;
+    background-image: linear-gradient(to bottom right, var(--color-accent-secondary), rgba(224, 147, 47, 0));
+    float:right;
+    margin-right: -1rem;
+    margin-top: 2rem;
+    box-shadow: -70px -50px 70px 10px  var(--color-accent-secondary);
+}
+
+/* Now making my website more responsive */
+/*Mobiles and Tablets*/ 
+@media (max-width: 767px){
+    .TextDesign{
+        height: fit-content;
+        width: 90%;
+    }
+  
+}

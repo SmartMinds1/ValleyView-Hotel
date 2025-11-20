@@ -1,0 +1,31 @@
+
+
+.contentBox{
+    background-color: rgb(7, 16, 37, 0.6);
+    width:12rem;
+    height:15rem;
+    float:left;
+    margin:1rem;
+    margin-top: 2rem;
+  }
+  .FooterListDesign li{
+    color:rgb(211, 211, 255);
+    list-style-type: none;
+    font-size: 0.9rem;
+    text-align: left;
+    padding:0.2rem;
+    padding-left: 0.8rem;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+   
+  }
+
+  .FooterListDesign li:hover{
+    filter: brightness(0.8);
+    color: var(--color-accent-secondary);
+    
+  }
+  .FooterListDesign li:active{
+    filter: brightness(1);
+  }
+  

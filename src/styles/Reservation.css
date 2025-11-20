@@ -1,0 +1,396 @@
+/* ...........................SECTION ONE......................... */
+.reserveSection1{
+    width:100%;
+    height: fit-content;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* IMAGE SLIDER */
+  .section1ImageSlider{
+    width:clamp(300px,90%,30rem);
+    height: 68vh;
+    border-left: none;
+    margin:1rem;
+    position:relative;
+   
+
+  }
+
+  .sliderItem{
+    width:20%;
+    height: 15vh;
+    overflow: hidden;
+    position: absolute;
+    top:60%;
+    left:5%;
+    transform: translate(0, 50%);
+    border-radius: 1rem;
+    display: inline-block;
+    transition: ease-in 1s;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .sliderItem:nth-child(1),
+  .sliderItem:nth-child(2) {
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+  
+  }
+
+.sliderItem:nth-child(3) { 
+    left:35%;
+}
+.sliderItem:nth-child(4) {
+    left: 60%;
+}
+.sliderItem:nth-child(n + 5) {
+    left: 85%;
+    opacity: 0;
+       
+}
+/* 
+.slide {
+    animation: animate 20s ease-in-out 1s forwards;
+} */
+
+/* content container inside the animating divStyle */
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    width: 300px;
+    text-align: left;
+    color: var(--color-text);
+    transform: translate(0, -50%);
+    background-color: rgba(0, 0, 0, 0.400);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display:none;
+}
+
+.sliderItem:nth-child(2) .content{
+    display: block;
+    
+}
+.booking_name {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: slide 1s ease-in-out 1s forwards;
+}
+.booking_Des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: slide 1s ease-in-out 1.3s forwards;
+}
+
+@keyframes slide {
+    from {
+        transform: translate(0, 100px);
+        opacity: 0;
+        filter: blur(33px);
+    }
+
+    to {
+        transform: translate(0);
+        opacity:1;
+        filter: blur(0);
+    }
+}
+
+
+/* Adding bckgroundImags to our image divs */
+  .imageDiv1{
+    background-image: url(../assets/animeReservation/introAnimation2.jpg);
+  }
+  .imageDiv2{
+    background-image: url(../assets/animeReservation/FamilyDeluxeRoom1.jpg);
+  }
+  .imageDiv3{
+    background-image: url(../assets/animeReservation/pexels-charlotte-may-5825536.jpg);
+  }
+  .imageDiv4{
+    background-image: url(../assets/animeReservation/pexels-heyho-6492384.jpg);
+  }
+  .imageDiv5{
+    background-image: url(../assets/animeReservation/room.jpg);
+  }
+  .imageDiv6{
+    background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
+  }
+  .imageDiv7{
+    background-image: url(../assets/animeReservation/pexels-heyho-6580396.jpg);
+  }
+
+
+/* CAPTION PARAGRAPH */
+  .Section1TextCaption{
+    height: fit-content;
+    width:clamp(300px,90%,35rem);
+    
+  }
+
+
+  .Section1TextCaption h1{
+      font-size: 2.5rem;
+      font-weight: 300;
+  }
+  .Section1TextCaption h1 span{
+    color:var(--color-accent-secondary);
+    letter-spacing: 0.5rem;
+    font-size: 2rem;
+    
+  }
+  
+  .reserveMessage1{
+      margin: auto;
+      width:80%;
+  
+  }
+
+
+
+/* ---------------------  SECTION 2 ----------------------- */
+.reserveSection2{
+    width:100%;
+    height: fit-content;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 5vh;
+    padding:0 1rem 0 1rem;
+    
+   
+}
+.reserveSection2 h3{
+  font-weight: 320;
+  color: var(--color-text);
+  text-align: left;
+  margin-bottom: 2rem;
+  margin-left: 2%;
+
+}
+.reserveSection2 h3 span{
+  color:var(--color-faded-accent-primary);
+  font-size: 2rem;
+  font-weight: 500;
+  
+}
+.selectRoomBar{
+  width:100%;
+  height: fit-content;
+  min-height: 15%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.selectRoomBar ul{
+  height: fit-content;
+  width: clamp(300px,90%,35rem);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:5%;
+  margin-top: 2rem;
+  list-style-type: none;
+
+}
+.selectRoomBar ul li{
+  border-right:1px solid var(--color-accent-secondary);
+  padding-right: 1.5rem;
+  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 300ms;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.selectRoomBar ul li:hover, .selectRoomBar ul li:focus{
+  filter:brightness(0.8);
+  color: var(--color-faded-accent-primary);
+}
+
+/* part 2 of section II */
+/* This is the outermost div hoding the entire content container */
+.roomsHolderMover {
+  width:100%;
+  height: fit-content;
+  background-color: var(--color-background);
+ 
+}
+
+/* This div holds individual room category ie.. Deluxe, Gym etc */
+.roomImagesContainer{
+  width:100%;
+  height: fit-content;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap:1%;
+
+  
+}
+
+/*.............. Delux room images......... */
+  .duluxe1{
+    background-image: url(../assets/animeReservation/introAnimation7.jpg);
+    margin-bottom: 3rem;
+  }
+  .duluxe2{
+    background-image: url(../assets/animeReservation/pexels-charlotte-may-5825536.jpg);
+    margin-bottom: 3rem;
+  }
+  .duluxe3{
+    background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
+    margin-bottom: 3rem;
+  }
+  .duluxe4{
+    background-image: url(../assets/Diluxe2.jpg);
+    margin-bottom: 3rem;
+  }
+/*.............. Family room images......... */
+  .family1{
+    background-image: url(../assets/BalconyNature.jpg);
+    margin-bottom: 3rem;
+  }
+  .family2{
+    background-image: url(../assets/modernOneBed.png);
+    margin-bottom: 3rem;
+  }
+  .family3{
+    background-image: url(../assets/TwinBeds1.jpg);
+    margin-bottom: 3rem;
+  }
+  .family4{
+    background-image: url(../assets/Deluxe1.jpg);
+    margin-bottom: 3rem;
+  }
+/*.............. conference room images......... */
+  .conference1{
+    background-image: url(../assets/BalconyNature.jpg);
+    margin-bottom: 3rem;
+  }
+  .conference2{
+    background-image: url(../assets/animeReservation/introAnimation2.jpg);
+    margin-bottom: 3rem;
+  }
+  .conference3{
+    background-image: url(../assets/TwinBeds1.jpg);
+    margin-bottom: 3rem;
+  }
+  .conference4{
+    background-image: url(../assets/animeReservation/smart8.jpg);
+    margin-bottom: 3rem;
+  }
+
+
+
+
+/*--------------------------- SECTION 3------------------- */
+.reserveSection3{
+    width:100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.reserveSection3 h2{
+  font-weight: 320;
+  color: var(--color-text);
+  text-align: left;
+  margin-bottom: 2rem;
+  width:80%;
+
+  
+}
+
+.reserveSection3 h2 span{
+  color:var(--color-accent-secondary);
+  font-size: 2rem;
+  font-weight: 300;
+  
+  
+}
+.reservationGuidlines ul li{
+  text-align: left;
+  line-height: 2rem;
+  font-size: 1.1rem;
+
+  
+}
+.reservationGuidlinesp{
+  font-size: 1.5rem;
+  filter:brightness(0.85);
+  margin-top: 3rem;
+  width: 80%;
+
+}
+.reservationGuidlinesp span{
+  color:var(--color-faded-accent-primary);
+
+  }
+
+.reservationGuidlines ::marker{
+  color:var(--color-accent-primary);
+}
+
+
+
+/* Now making my website more responsive */
+/*Mobiles*/ 
+@media (max-width: 767px){
+  .section1ImageSlider{
+    height: 60vh;
+    margin-bottom: 5rem;
+  }
+  .content {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    width: 250px;
+    height:190px;
+  }
+  .reservationGuidlines{
+    margin:auto;
+    width: 85%;
+    margin-bottom: 3rem;
+    margin-left: 10%;
+    padding:1rem;
+  }
+  .reservationGuidlinesp{
+    width:80%;
+    
+  }
+}
+
+
+
+
