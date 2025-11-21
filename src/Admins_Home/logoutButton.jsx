@@ -11,7 +11,7 @@ const LogoutButton = () => {
         "http://localhost:5000/api/auth/logout",
         {}, // no body needed — refresh token will come from cookie
         {
-          withCredentials: true, // ✅ send cookies along with request
+          withCredentials: true, //  send cookies along with request
           headers: {
             Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // still needed for access validation
           },
@@ -30,7 +30,7 @@ const LogoutButton = () => {
     }
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return <button onClick={handleLogout} className="logoutbtn">Logout </button>;
 };
 
 export default LogoutButton;

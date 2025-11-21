@@ -931,3 +931,18 @@ body {
     transform: none;
     box-shadow: none;
 }
+
+.logoutbtn {
+    padding: 0.75rem 1.5rem;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.logoutbtn:hover {
+    background-color: #dc2626;
+}
