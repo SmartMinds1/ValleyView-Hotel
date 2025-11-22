@@ -30,7 +30,7 @@ exports.register = async (req, res) => {
 
     // Add user to database with audit fields
     await query(
-      `INSERT INTO smartygrand_users 
+      `INSERT INTO public.valleyview_users 
         (username, email, password, created_by, updated_by, created_at, updated_at)
        VALUES ($1, $2, $3, $4, $5, NOW(), NOW())`,
       [username, email, hashedPassword, createdBy, updatedBy]
@@ -64,7 +64,7 @@ exports.login = async (req, res) => {
 
   try {
     const result = await query(
-      "SELECT id, username, password, role, is_active FROM smartygrand_users WHERE username = $1",
+      "SELECT id, username, password, role, is_active FROM public.valleyview_users WHERE username = $1",
       [username]
     );
 
@@ -88,7 +88,7 @@ exports.login = async (req, res) => {
 
     // -- LIMITING1 CONCURRENT SESSIONS ---
     const activeSessions = await query(
-      `SELECT id, loggedin_at FROM smartygrand_user_sessions 
+      `SELECT id, loggedin_at FROM public.valleyview_user_sessions 
        WHERE user_id = $1 AND is_active = true 
        ORDER BY loggedin_at ASC`, // oldest first
       [user.id]
@@ -98,7 +98,7 @@ exports.login = async (req, res) => {
       const oldestSession = activeSessions.rows[0]; // oldest active one
 
       await query(
-        `UPDATE smartygrand_user_sessions 
+        `UPDATE public.valleyview_user_sessions 
          SET is_active = false 
          WHERE id = $1`,
         [oldestSession.id]
@@ -134,7 +134,7 @@ exports.login = async (req, res) => {
 
     // Store new session in DB
     await query(
-      `INSERT INTO smartygrand_user_sessions 
+      `INSERT INTO public.valleyview_user_sessions 
       (user_id, refresh_token_hash, ip_address, device_info, is_active, loggedin_at, last_activity_at)
       VALUES ($1, $2, $3, $4, true, NOW(), NOW())`,
       [user.id, refreshTokenHash, ipAddress, deviceInfo]
@@ -199,7 +199,7 @@ exports.refreshToken = async (req, res) => {
     // Fetch all active sessions for this user
     const result = await query(
       `SELECT id, refresh_token_hash, ip_address, device_info
-    FROM smartygrand_user_sessions
+    FROM public.valleyview_user_sessions
     WHERE user_id = $1 AND is_active = true`,
       [payload.id]
     );
@@ -231,7 +231,7 @@ exports.refreshToken = async (req, res) => {
     if (ipMismatch || deviceMismatch) {
       // Mark session as suspicious and deactivate immediately
       await query(
-        `UPDATE smartygrand_user_sessions
+        `UPDATE public.valleyview_user_sessions
          SET is_active = false, logged_out_at = NOW()
          WHERE id = $1`,
         [validSession.id]
@@ -251,7 +251,7 @@ exports.refreshToken = async (req, res) => {
 
     //OTHERWISE, UPDATE last activity session
     await query(
-      `UPDATE smartygrand_user_sessions
+      `UPDATE public.valleyview_user_sessions
        SET last_activity_at = NOW()
        WHERE id = $1`,
       [validSession.id]
@@ -326,7 +326,7 @@ exports.logout = async (req, res) => {
 
     // Fetch all sessions for this user
     const sessions = await query(
-      `SELECT id, refresh_token_hash FROM smartygrand_user_sessions WHERE user_id = $1 AND is_active = true`,
+      `SELECT id, refresh_token_hash FROM public.valleyview_user_sessions WHERE user_id = $1 AND is_active = true`,
       [payload2.id]
     );
 
@@ -350,7 +350,7 @@ exports.logout = async (req, res) => {
 
     // Deactivate the correct session and update logout time
     await query(
-      `UPDATE smartygrand_user_sessions
+      `UPDATE public.valleyview_user_sessions
        SET is_active = false,
            logged_out_at = NOW()
        WHERE id = $1`,
