@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   max-width: 100%;
-  height:3rem;
+  height:rem;
   background-color: rgb(4, 11, 29, 0.5);
   transition: transform 0.3s ease-in-out; /* Smooth transition */
   z-index: 100;
@@ -67,7 +67,7 @@ cursor: pointer;
   transition: all 200ms ease-in-out;
 }
 .linkStyle:hover, .linkStyle:focus{
-color: var(--color-faded-accent-primary);
+color:rgb(244, 189, 23);
 
 }
 .navPages{
@@ -117,7 +117,7 @@ justify-content: space-between;
 
 /* Auth links */
 .auth-links {
-  color: aliceblue;
+  color: rgb(3, 26, 47);
   font-size: 1rem;
   list-style-type: none;
   text-align: left;
@@ -127,7 +127,7 @@ justify-content: space-between;
   height: 0;
   overflow-y: hidden;
   z-index: 2000;
-  background-color: #c42e003b;
+  background-color: #ffffffdc;
 }
 
 /* Hover triggers animation */
@@ -160,7 +160,7 @@ justify-content: space-between;
 }
 
 .auth-links li:hover{
-  background-color: #c42e0071;
+  background-color: #09124271;
 }
 
 

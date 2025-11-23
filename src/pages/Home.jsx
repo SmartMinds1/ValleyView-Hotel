@@ -1,9 +1,11 @@
 import React from 'react';
+import heroVideo from "../assets/hero.mp4";
 import "../styles/home.css";
 import Button from "../components/Button";
 import { formatDate } from '../utils/formatDate';
 import MessageMover from '../components/MessageMover';
 import StylishBox from "../components/StylishBox";
+
 import ImageTextBox from '../components/Image_Text_Box';
 import PromosCircle from '../components/PromosCircle';
 import Chatform from '../components/Chatform';
@@ -20,21 +22,33 @@ function Home() {
 <div className="Home">
 {/* .................................This is the homepage Hero section................................. */}
 {/* These are the BG anim images */}
-       <div className="homeCaptionImage1"></div>
-       <div className="homeCaptionImage2"></div>
-         
-{/* This is the intro shade and the catption text */}
-        <div className="captionShader">
-            <div className="captionHeaderText  urbanist">
-                <p>Your cozy place <span>away, <br />from </span>home!</p>
-            </div>
-            <div className="captionMessage">
-                <p>Book Your Stay Today!</p>
-                <div class='pulse'>
-                   <Link to="/reservations"> <Button type="submit" btnLabel="Book Now"/> </Link>
-                </div>
-            </div>           
-        </div>
+      
+ <div className="heroSection">
+  <video className="heroVideo" autoPlay loop muted playsInline>
+    <source src={heroVideo} type="video/mp4" />
+  </video>
+
+  <div className="heroOverlay"></div>
+
+  {/* MOVED INSIDE HERO SECTION */}
+  <div className="captionShader">
+      <div className="captionHeaderText urbanist">
+          <p>Your cozy place <span>away, <br />from </span>home!</p>
+      </div>
+
+      <div className="captionMessage">
+          <p>Book Your Stay Today!</p>
+
+          <div className="pulse">
+             <Link to="/reservations">
+                <Button type="submit" btnLabel="Book Now"/>
+             </Link>
+          </div>
+      </div>
+  </div>
+
+</div>
+
 
 {/* ...........................Search bar section......................... */}
 <div className="homeSection0">

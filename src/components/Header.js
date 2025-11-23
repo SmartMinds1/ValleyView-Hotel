@@ -83,7 +83,7 @@ const Header = () => {
       <div className={`header ${isVisible ? "visible" : "hidden"}`}>
         <div className="navBar">
           <h1 className="headerTitle">
-            <span>Smarty</span>Grand
+            <span>Valley</span>View
           </h1>
 
           <button
