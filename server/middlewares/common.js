@@ -31,7 +31,7 @@ const commonMiddleware = (app) => {
     },
 
     credentials: true, // This allows cookies to travel
->>>>>>> joe
+
     exposedHeaders: ["set-cookie"], //  Optional: helps browsers see cookies
   };
 
