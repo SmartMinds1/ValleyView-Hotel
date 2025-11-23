@@ -66,7 +66,7 @@ const SignUp = ({ closeSignUp, onSuccess }) => {
       <div className="auth-container">
         {/* Header */}
         <div className="auth-header urbanist">
-          <h2>Welcome! Join Us</h2>
+          <h2>Welcome! Join Us </h2>
           <button onClick={closeSignUp} className="auth-close-btn">
             ✕
           </button>

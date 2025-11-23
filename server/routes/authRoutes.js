@@ -3,6 +3,10 @@ const authController = require("../controllers/authController");
 const { registerLimiter, loginLimiter } = require("../middlewares/limiter");
 const checkAccessBlacklist = require("../middlewares/checkAccessBlacklist");
 const checkRefreshBlacklist = require("../middlewares/chekRefreshBlacklist");
+const authenticateToken = require("../middlewares/authMiddleware");
+const { authorizeRoles } = require('../middlewares/authorizeRoles');
+
+
 const {
   usernameValidation,
   emailValidation,
@@ -41,6 +45,10 @@ router.post(
   authController.accessTokenLogin
 );
 
+// User routes
+router.get('/user', authenticateToken, authController.getUser); 
+router.get('/user/current', authenticateToken, authController.getCurrentUser); 
+router.get('/user/with-sessions', authenticateToken, authorizeRoles(['admin']), authController.getUserWithSessions);
 // Logout
 router.post("/logout", [checkAccessBlacklist], authController.logout);
 

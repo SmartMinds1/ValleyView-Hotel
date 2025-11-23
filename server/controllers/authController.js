@@ -375,3 +375,239 @@ exports.logout = async (req, res) => {
     return res.status(500).json({ message: "Internal server error." });
   }
 };
+
+
+// Get Single User by ID or Username <-----------------------------------------------
+exports.getUser = async (req, res) => {
+  try {
+    const { id, username } = req.query; // Accept either id or username as query parameter
+
+    if (!id && !username) {
+      return res.status(400).json({ 
+        message: "Either 'id' or 'username' parameter is required" 
+      });
+    }
+
+    let queryString;
+    let queryParams;
+
+    if (id) {
+      queryString = `
+        SELECT 
+          id, 
+          username, 
+          email, 
+          role, 
+          is_active, 
+          created_by, 
+          updated_by, 
+          created_at, 
+          updated_at
+        FROM smartygrand_users 
+        WHERE id = $1
+      `;
+      queryParams = [id];
+    } else {
+      queryString = `
+        SELECT 
+          id, 
+          username, 
+          email, 
+          role, 
+          is_active, 
+          created_by, 
+          updated_by, 
+          created_at, 
+          updated_at
+        FROM smartygrand_users 
+        WHERE username = $1
+      `;
+      queryParams = [username];
+    }
+
+    const result = await query(queryString, queryParams);
+
+    if (result.rows.length === 0) {
+      logger.warn(`User not found: ${id ? 'ID: ' + id : 'Username: ' + username}`);
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = result.rows[0];
+
+    // Remove sensitive information before sending response
+    const userResponse = {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      is_active: user.is_active,
+      created_by: user.created_by,
+      updated_by: user.updated_by,
+      created_at: user.created_at,
+      updated_at: user.updated_at
+    };
+
+    logger.info(`User retrieved: ${user.username} (by ${req.user?.username || 'system'})`);
+    res.json({ user: userResponse });
+
+  } catch (error) {
+    logger.error(`Get user error: ${error.message}`);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Get Current User Profile <-----------------------------------------------
+exports.getCurrentUser = async (req, res) => {
+  try {
+    const userId = req.user.id; // From JWT middleware
+
+    const result = await query(
+      `SELECT 
+        id, 
+        username, 
+        email, 
+        role, 
+        is_active, 
+        created_by, 
+        updated_by, 
+        created_at, 
+        updated_at
+      FROM smartygrand_users 
+      WHERE id = $1`,
+      [userId]
+    );
+
+    if (result.rows.length === 0) {
+      logger.warn(`Current user not found: ID ${userId}`);
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const user = result.rows[0];
+
+    // Remove sensitive information before sending response
+    const userResponse = {
+      id: user.id,
+      username: user.username,
+      email: user.email,
+      role: user.role,
+      is_active: user.is_active,
+      created_by: user.created_by,
+      updated_by: user.updated_by,
+      created_at: user.created_at,
+      updated_at: user.updated_at
+    };
+
+    logger.info(`Current user profile retrieved: ${user.username}`);
+    res.json({ user: userResponse });
+
+  } catch (error) {
+    logger.error(`Get current user error: ${error.message}`);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};
+
+// Get User with Active Sessions <-----------------------------------------------
+exports.getUserWithSessions = async (req, res) => {
+  try {
+    const { id, username } = req.query;
+
+    if (!id && !username) {
+      return res.status(400).json({ 
+        message: "Either 'id' or 'username' parameter is required" 
+      });
+    }
+
+    let queryString;
+    let queryParams;
+
+    if (id) {
+      queryString = `
+        SELECT 
+          u.id, 
+          u.username, 
+          u.email, 
+          u.role, 
+          u.is_active, 
+          u.created_at,
+          u.updated_at,
+          COUNT(s.id) as active_sessions_count,
+          JSON_AGG(
+            CASE 
+              WHEN s.id IS NOT NULL THEN
+                JSON_BUILD_OBJECT(
+                  'session_id', s.id,
+                  'ip_address', s.ip_address,
+                  'device_info', s.device_info,
+                  'loggedin_at', s.loggedin_at,
+                  'last_activity_at', s.last_activity_at
+                )
+              ELSE NULL
+            END
+          ) FILTER (WHERE s.id IS NOT NULL) as active_sessions
+        FROM smartygrand_users u
+        LEFT JOIN smartygrand_user_sessions s ON u.id = s.user_id AND s.is_active = true
+        WHERE u.id = $1
+        GROUP BY u.id, u.username, u.email, u.role, u.is_active, u.created_at, u.updated_at
+      `;
+      queryParams = [id];
+    } else {
+      queryString = `
+        SELECT 
+          u.id, 
+          u.username, 
+          u.email, 
+          u.role, 
+          u.is_active, 
+          u.created_at,
+          u.updated_at,
+          COUNT(s.id) as active_sessions_count,
+          JSON_AGG(
+            CASE 
+              WHEN s.id IS NOT NULL THEN
+                JSON_BUILD_OBJECT(
+                  'session_id', s.id,
+                  'ip_address', s.ip_address,
+                  'device_info', s.device_info,
+                  'loggedin_at', s.loggedin_at,
+                  'last_activity_at', s.last_activity_at
+                )
+              ELSE NULL
+            END
+          ) FILTER (WHERE s.id IS NOT NULL) as active_sessions
+        FROM smartygrand_users u
+        LEFT JOIN smartygrand_user_sessions s ON u.id = s.user_id AND s.is_active = true
+        WHERE u.username = $1
+        GROUP BY u.id, u.username, u.email, u.role, u.is_active, u.created_at, u.updated_at
+      `;
+      queryParams = [username];
+    }
+
+    const result = await query(queryString, queryParams);
+
+    if (result.rows.length === 0) {
+      logger.warn(`User not found: ${id ? 'ID: ' + id : 'Username: ' + username}`);
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const userData = result.rows[0];
+
+    const userResponse = {
+      id: userData.id,
+      username: userData.username,
+      email: userData.email,
+      role: userData.role,
+      is_active: userData.is_active,
+      created_at: userData.created_at,
+      updated_at: userData.updated_at,
+      active_sessions_count: parseInt(userData.active_sessions_count),
+      active_sessions: userData.active_sessions || []
+    };
+
+    logger.info(`User with sessions retrieved: ${userData.username} (by ${req.user?.username || 'system'})`);
+    res.json({ user: userResponse });
+
+  } catch (error) {
+    logger.error(`Get user with sessions error: ${error.message}`);
+    res.status(500).json({ message: "Internal server error." });
+  }
+};

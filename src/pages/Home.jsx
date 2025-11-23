@@ -103,9 +103,84 @@ function Home() {
           </div>
 
 
-      
+      {/* ---------------------- IMAGE GALLERY SECTION ---------------------- */}
+      <div className="imageGallerySection">
+        <div className="galleryHeader">
+          <p className="why_Us">| Our Gallery</p>
+          <h1 className="h1Text"><span>Experience</span> Our World Through These Moments</h1>
+          <div className="gallerySubtitle">
+            <p>Discover the beauty and elegance that awaits you at every corner of our hotel</p>
+          </div>
+        </div>
 
+        <div className="galleryContainer">
+          <div className="galleryRow">
+            <div className="galleryItem large">
+              <div className="galleryImage galleryImage1"></div>
+              <div className="galleryOverlay">
+                <h3>Luxury Suites</h3>
+                <p>Elegant accommodations with stunning views</p>
+              </div>
+            </div>
+            <div className="galleryItem">
+              <div className="galleryImage galleryImage2"></div>
+              <div className="galleryOverlay">
+                <h3>Fine Dining</h3>
+                <p>Exquisite culinary experiences</p>
+              </div>
+            </div>
+          </div>
           
+          <div className="galleryRow">
+            <div className="galleryItem">
+              <div className="galleryImage galleryImage3"></div>
+              <div className="galleryOverlay">
+                <h3>Pool Area</h3>
+                <p>Relaxing oasis under the sun</p>
+              </div>
+            </div>
+            <div className="galleryItem">
+              <div className="galleryImage galleryImage4"></div>
+              <div className="galleryOverlay">
+                <h3>Spa & Wellness</h3>
+                <p>Ultimate relaxation and rejuvenation</p>
+              </div>
+            </div>
+            <div className="galleryItem">
+              <div className="galleryImage galleryImage5"></div>
+              <div className="galleryOverlay">
+                <h3>Event Spaces</h3>
+                <p>Perfect venues for special occasions</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="galleryRow">
+            <div className="galleryItem">
+              <div className="galleryImage galleryImage6"></div>
+              <div className="galleryOverlay">
+                <h3>Lobby</h3>
+                <p>Grand entrance with sophisticated design</p>
+              </div>
+            </div>
+            <div className="galleryItem large">
+              <div className="galleryImage galleryImage7"></div>
+              <div className="galleryOverlay">
+                <h3>City Views</h3>
+                <p>Breathtaking panoramic scenes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="galleryCta">
+          <p>Want to see more of our beautiful spaces?</p>
+          <Link to="/gallery" className="btnView">
+          {/*   <Button type="submit" btnLabel="View Full Gallery" /> */}
+            View Full Gallery
+          </Link>
+        </div>
+      </div>
 
 {/* ...........................This is the Testimonials section................................... */}
 <div className="testimonialSection">
@@ -113,10 +188,10 @@ function Home() {
           <div className="clientTestimonials">
                 <div className="testimonialsCaption">
                         <p className="why_Us">| Our Testimonials</p>
-                        <h1 className="h1Text"><span>Here’s</span> what our clients have to say about us.</h1>
+                        <h1 className="h1Text"><span>Here's</span> what our clients have to say about us.</h1>
                     <div className="homeMessage1 TextDesign testimoniaLights">
                             <p> 
-                                Every detail is crafted to ensure comfort and satisfaction. But don’t just take our 
+                                Every detail is crafted to ensure comfort and satisfaction. But don't just take our 
                                 word for it—hear from our valued guests who have experienced it firsthand.
                             </p>
                     </div>
@@ -200,6 +275,3 @@ function Home() {
 }
 
 export default Home;
-
-
-

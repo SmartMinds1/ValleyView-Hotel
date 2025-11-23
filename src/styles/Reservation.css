@@ -114,29 +114,84 @@
 }
 
 
-/* Adding bckgroundImags to our image divs */
-  .imageDiv1{
-    background-image: url(../assets/animeReservation/introAnimation2.jpg);
-  }
-  .imageDiv2{
-    background-image: url(../assets/animeReservation/FamilyDeluxeRoom1.jpg);
-  }
-  .imageDiv3{
-    background-image: url(../assets/animeReservation/pexels-charlotte-may-5825536.jpg);
-  }
-  .imageDiv4{
-    background-image: url(../assets/animeReservation/pexels-heyho-6492384.jpg);
-  }
-  .imageDiv5{
-    background-image: url(../assets/animeReservation/room.jpg);
-  }
-  .imageDiv6{
-    background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
-  }
-  .imageDiv7{
-    background-image: url(../assets/animeReservation/pexels-heyho-6580396.jpg);
-  }
+/* Adding backgroundImages to our image divs */
+.imageDiv1{
+  background-image: url(../assets/animeReservation/introAnimation2.jpg);
+}
+.imageDiv2{
+  background-image: url(../assets/animeReservation/FamilyDeluxeRoom1.jpg);
+}
+.imageDiv3{
+  background-image: url(../assets/animeReservation/pexels-charlotte-may-5825536.jpg);
+}
+.imageDiv4{
+  background-image: url(../assets/animeReservation/pexels-heyho-6492384.jpg);
+}
+.imageDiv5{
+  background-image: url(../assets/animeReservation/room.jpg);
+}
+.imageDiv6{
+  background-image: url(../assets/animeReservation/pexels-houzlook-3797991.jpg);
+}
+.imageDiv7{
+  background-image: url(../assets/animeReservation/pexels-heyho-6580396.jpg);
+}
 
+/* FAMILY ROOMS */
+.imageDiv8{
+  background-image: url(../assets/animeReservation/family1.jpg);
+}
+.imageDiv9{
+  background-image: url(../assets/animeReservation/family2.jpg);
+}
+.imageDiv10{
+  background-image: url(../assets/animeReservation/family3.jpg);
+}
+.imageDiv11{
+  background-image: url(../assets/animeReservation/family4.jpg);
+}
+
+/* CONFERENCE ROOMS */
+.imageDiv12{
+  background-image: url(../assets/animeReservation/conference1.jpg);
+}
+.imageDiv13{
+  background-image: url(../assets/animeReservation/conference2.jpg);
+}
+.imageDiv14{
+  background-image: url(../assets/animeReservation/conference3.jpg);
+}
+.imageDiv15{
+  background-image: url(../assets/animeReservation/conference4.jpg);
+}
+
+/* SPA SERVICES */
+.imageDiv16{
+  background-image: url(../assets/animeReservation/spa1.jpg);
+}
+.imageDiv17{
+  background-image: url(../assets/animeReservation/spa2.jpg);
+}
+.imageDiv18{
+  background-image: url(../assets/animeReservation/spa3.jpg);
+}
+.imageDiv19{
+  background-image: url(../assets/animeReservation/spa.jpg);
+}
+
+/* GYM SERVICES */
+.imageDiv20{
+  background-image: url(../assets/animeReservation/gym1.jpg);
+}
+.imageDiv21{
+  background-image: url(../assets/animeReservation/gym2.jpg);
+}
+.imageDiv22{
+  background-image: url(../assets/animeReservation/gym3.jpg);
+}
+.imageDiv23{
+  background-image: url(../assets/animeReservation/gym4.jpg);
+}
 
 /* CAPTION PARAGRAPH */
   .Section1TextCaption{

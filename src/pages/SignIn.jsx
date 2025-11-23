@@ -58,7 +58,8 @@ const SignIn = ({signUpResponse, closeSignIn, onDontHaveAccount, onForgotPass}) 
             const role = localStorage.getItem("userRole");
             if (role === "admin") navigate("/admin-dashboard");
             else if (role === "agent") navigate("/agent-dashboard");
-            else navigate("/user-dashboard");
+            else navigate("/");
+            window.location.reload()
               
 
 

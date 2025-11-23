@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Admin from './Admins_Home/Admin';
 import ForgotPassword from './pages/ForgotPassword'; // adjust path as needed
 import ResetPassword from "./pages/ResetPassword";
+import Gallery from './components/Gallery';
 
 
 // Simple protected route
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/reservations" element={<Reservations />} />
+            <Route path="/gallery" element={<Gallery/>} />
         </Route>
 
         {/* Auth routes */}
@@ -36,6 +38,7 @@ const App = () => {
         <Route path="/register" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" component={ResetPassword} />
+        
 
         {/* Protected admin route */}
         <Route

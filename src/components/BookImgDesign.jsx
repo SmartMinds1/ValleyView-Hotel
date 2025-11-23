@@ -3,7 +3,7 @@ import './BookImgDesign.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
-const BookImgDesign = ({children})=>{
+const BookImgDesign = ({children, className = ""})=>{
 
 //setting up toggle button to displaying roomDetailsBox
     const [showContent, setShowContent] = useState(false);
@@ -14,7 +14,7 @@ const BookImgDesign = ({children})=>{
        
 
 return(
-    <div className="bookImgContainer ">
+    <div className={`bookImgContainer ${className}`}>
           <button 
             className="arrow-icon"
             onClick={handleToggle} 
@@ -32,4 +32,4 @@ return(
     );
 }
 
-export default BookImgDesign
+export default BookImgDesign;
