@@ -33,105 +33,57 @@
 
 
 /* .................hero section animation images...................... */
-.homeCaptionImage1{
-  width:100%;
-  height: 100vh;
-  margin:auto;
-  top: 0;
-  background-image: url(../assets/HotelCaption1.png);
-  background-size: cover;
-  background-position-y: 35%;
-  background-position-x: -3rem;
-
-  animation: captionImage1Slide 40s ease-in-out 0s infinite;
-  position: absolute;
-}
-.homeCaptionImage2{
-  width:100%;
-  height: 100vh;
-  margin:auto;
-  background-image: url(../assets/hotelCaption2.png);
-  background-size: cover;
-  background-position-y: 70%;
+.heroSection {
   position: relative;
-  animation: captionImage2Slide 40s ease-in-out 0s infinite;
-  top:-3rem;
-
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
-@keyframes captionImage1Slide {
 
-  0%{
-     width: 100%;
-  }
-
-  20%{
-    width: 100%;
-  }
-
-  40%{
-    width: 0%;
-  }
-
-  60%{
-    width: 0%;
-  }
-
-  80%{
-    width: 0%;
-
-  }
-  100%{
-    width:100%;
-  }
+/* Background Video */
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
 
 }
 
-@keyframes captionImage2Slide {
-
-  0%{
-     width: 0%;
-  }
-
-  20%{
-    width: 0%;
-  }
-
-  40%{
-    width: 100%;
-  }
-
-  60%{
-    width: 100%;
-  }
-
-  80%{
-    width: 100%;
-
-  }
-  100%{
-    width:0%;
-  }
-
+/* Dark Overlay (optional but recommended for readability) */
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.0); /* adjustable */
+  z-index: 2;
 }
 
 /* ................The shade ontop of hero section images ................*/
-.captionShader{
-  width:100%;
-  height: 100vh;
-  background-color: rgba(4, 11, 29, 0.7);
-  position:absolute;
-  top:0;
+.captionShader {
+  width: 100%;
+  height: 100vh; /* Important fix */
+  background-color: rgba(18, 29, 59, 0.28);
+  position: absolute;
+  top: 0;
+  left: 0;       /* Important */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  z-index: 5;
 }
+
 
 .captionHeaderText{
   width: fit-content;
   margin-bottom: 5vh;
   margin-top: 5vh;
+  
 }
 .captionHeaderText p{
   height: fit-content;

@@ -198,7 +198,7 @@ const Header = () => {
         
         <div className="navBar">
           <h1 className="headerTitle">
-            <span>Smarty</span>Grand
+            <span>Valley</span>View
           </h1>
 
           <button
